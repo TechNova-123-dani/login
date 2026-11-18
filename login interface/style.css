@@ -1,0 +1,318 @@
+
+/* =================================
+   1. ROOT VARIABLES
+================================= */
+
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --text-dark: #172033;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --danger: #ef4444;
+    --success: #16a34a;
+    --radius: 16px;
+    --transition: 0.3s ease;
+}
+
+/* =================================
+   2. GLOBAL RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =================================
+   3. PAGE BACKGROUND
+================================= */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+        #818cf8 0%, transparent 35%),
+
+        radial-gradient(circle at 85% 80%,
+        #a78bfa 0%, transparent 35%),
+
+        linear-gradient(135deg,
+        #0f172a, #312e81);
+
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* =================================
+   4. LOGIN CONTAINER
+================================= */
+
+.login-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 420px;
+
+    padding: 40px 35px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25),
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    animation: slideUp 0.8s ease both;
+}
+
+/* =================================
+   5. LOGO AND HEADINGS
+================================= */
+
+.login-container h1 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 3px;
+
+    color: var(--primary);
+
+    margin-bottom: 22px;
+}
+
+.login-container h2 {
+    text-align: center;
+    font-size: 25px;
+    color: var(--text-dark);
+
+    margin-bottom: 8px;
+}
+
+.login-container > p {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 14px;
+
+    margin-bottom: 30px;
+}
+
+/* =================================
+   6. FORM LABELS
+================================= */
+
+form > label {
+    display: block;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+
+    margin-bottom: 8px;
+}
+
+/* =================================
+   7. INPUT FIELDS
+================================= */
+
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+
+    width: 100%;
+    padding: 14px 15px;
+
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+
+    background: #f8fafc;
+
+    font-size: 14px;
+    color: var(--text-dark);
+
+    outline: none;
+
+    transition: all var(--transition);
+}
+
+/* Input focus effect */
+
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="text"]:focus {
+
+    border-color: var(--primary);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+/* Placeholder styling */
+
+form input::placeholder {
+    color: #94a3b8;
+}
+
+/* Space between input fields */
+
+form input[type="email"],
+form input[type="password"] {
+    margin-bottom: 22px;
+}
+
+/* =================================
+   8. SHOW PASSWORD
+================================= */
+
+.show-password {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 25px;
+}
+
+.show-password input {
+    width: 16px;
+    height: 16px;
+
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.show-password label {
+    font-size: 13px;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+/* =================================
+   9. LOGIN BUTTON
+================================= */
+
+button {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    color: var(--white);
+
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition: all var(--transition);
+}
+
+/* Button hover */
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Button active */
+
+button:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Keyboard focus */
+
+button:focus-visible {
+    outline: 3px solid #a5b4fc;
+    outline-offset: 4px;
+}
+
+/* =================================
+   10. FEEDBACK MESSAGE
+================================= */
+
+#message {
+    margin-top: 18px;
+
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* =================================
+   11. ENTRANCE ANIMATION
+================================= */
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =================================
+   12. RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 480px) {
+
+    .login-container {
+        padding: 30px 22px;
+    }
+
+    .login-container h2 {
+        font-size: 22px;
+    }
+
+    .login-container h1 {
+        font-size: 24px;
+    }
+
+}
+
+/* =================================
+   13. REDUCED MOTION ACCESSIBILITY
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+}
